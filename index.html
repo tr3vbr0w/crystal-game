@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
+
     
+
+
     <title>Crystal Collector</title>
   
 </head>
@@ -25,7 +28,6 @@
             <h3>Each time when the game starts, the game will challenge the values of each crystal.</h3>
         </div>
         <div class="row" id="num">
-            <div id="your-score"></div>
             <div id="w-l">
                 <span id="wins"></span>
                 <span id="losses"></span>
@@ -33,25 +35,78 @@
         </div>
 
         <div class="row" id="crystals">
-            <button class = "btn btn-danger" id="crystal-1">Crystal 1</button>
-            <button class = "btn btn-danger" id="crystal-2">Crystal 2</button>
-            <button class = "btn btn-danger" id="crystal-3">Crystal 3</button>
-            <button class = "btn btn-danger" id="crystal-4">Crystal 4</button>
+            <button class = "btn btn-danger crystals"id="crystal-1">Crystal 1</button>
+            <button class = "btn btn-danger crystals" id="crystal-2">Crystal 2</button>
+            <button class = "btn btn-danger crystals" id="crystal-3">Crystal 3</button>
+            <button class = "btn btn-danger crystals" id="crystal-4">Crystal 4</button>
         </div>
         <div class="row" id="score-box">
             <span>Your Total Score is:</span>
             <span id="your-score"></span>
+            <span id="match-score"></span>
         </div>
     </div>
 
     <!-- my JS link -->
-    <script src="assets/javascript/game.js"></script>
-
+    
     <!-- Bootstrap Optional JavaScript -->
     
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+    <!-- jQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+    // Variable Initialization
+    var wins = 0;
+    var losses = 0;
+    var crystalOneVal = Math.floor(Math.random() * (11) +1 );
+    var crystalTwoVal = Math.floor(Math.random() * (11) +1 );
+    var crystalThreeVal = Math.floor(Math.random() * (11) +1 );
+    var crystalFourVal = Math.floor(Math.random() * (11) +1 );
+    var matchScore = 0;
+    var myScore = 0;
+    var isPlaying = false;
+    
+    
+    $(document).ready(function() {
+    
+      
+
+        function startGame() {
+            var matchScore = Math.floor(Math.random() * (101)) + 19;
+            console.log(matchScore);
+            
+            console.log("Button 1 Value " + crystalOneVal);
+            console.log("Button 2 Value " + crystalTwoVal);
+            console.log('Button 3 Value ' + crystalThreeVal);
+            console.log("Button 4 Value "+ crystalFourVal);
+        }
+            
+        startGame(); 
+
+            $('#crystal-1').click(function() {
+                myScore = myScore + crystalOneVal;
+                $("#your-score").text(myScore.toString());  
+            });
+            $('#crystal-2').click(function() {
+                myScore = myScore + crystalTwoVal;
+                $("#your-score").text(myScore.toString());                  
+            });
+            $('#crystal-3').click(function() {
+                myScore = myScore + crystalThreeVal;
+                $("#your-score").text(myScore.toString());  
+            });
+            $('#crystal-4').click(function() {
+                myScore = myScore + crystalFourVal;
+                $("#your-score").text(myScore.toString());  
+            });
+
+            
+            console.log("This is my score" + myScore);
+    });
+    </script>
+
+</body>
 </html>
