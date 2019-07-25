@@ -7,34 +7,48 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    
     <title>Crystal Collector</title>
-  </head>
-  <body>
-    <h1>Crystal Collector!!</h1>
-    <div class = "row" id="user-instructions">
-        <h3>You will be given a random number at the start of the game</h3>
-        <h3>There are four crystals below. Clicking a crystal will add a specific amount of points to your total score.</h3>
-        <h3>You win the game by matching your total score to a random number, you lose the gam if your total score goes above the random number.</h3>
-        <h3>The value of each crystal is hidden from you until you click on it.</h3>
-        <h3>Each time when the game starts, the game will challenge the values of each crystal.</h3>
-    </div>
-    <div class="row" id="num">
-        <div id="your-score"></div>
-        <div id="w-l">
-            <span id="wins"></span>
-            <span id="losses"></span>
+  
+</head>
+  
+<body>
+    <div class="container">
+         <h1>Crystal Collector!!</h1>
+        <div class = "row" id="user-instructions">
+            <h3>You will be given a random number at the start of the game</h3>
+            <h3>There are four crystals below. Clicking a crystal will add a specific amount of points to your total score.</h3>
+            <h3>You win the game by matching your total score to a random number, you lose the gam if your total score goes above the random number.</h3>
+            <h3>The value of each crystal is hidden from you until you click on it.</h3>
+            <h3>Each time when the game starts, the game will challenge the values of each crystal.</h3>
+        </div>
+        <div class="row" id="num">
+            <div id="your-score"></div>
+            <div id="w-l">
+                <span id="wins"></span>
+                <span id="losses"></span>
+            </div>
+        </div>
+
+        <div class="row" id="crystals">
+            <button class = "btn btn-danger" id="crystal-1">Crystal 1</button>
+            <button class = "btn btn-danger" id="crystal-2">Crystal 2</button>
+            <button class = "btn btn-danger" id="crystal-3">Crystal 3</button>
+            <button class = "btn btn-danger" id="crystal-4">Crystal 4</button>
+        </div>
+        <div class="row" id="score-box">
+            <span>Your Total Score is:</span>
+            <span id="your-score"></span>
         </div>
     </div>
 
-    <div class="row" id="crystals"></div>
-    <div class="row" id="score-box">
-        <span>Your Total Score is:</span>
-        <span id="your-score"></span>
-    </div>
+    <!-- my JS link -->
+    <script src="assets/javascript/game.js"></script>
 
-
-    <!-- Optional JavaScript -->
+    <!-- Bootstrap Optional JavaScript -->
+    
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
