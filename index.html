@@ -20,25 +20,25 @@
 <body>
     <div class="container">
          <h1>Crystal Collector!!</h1>
-        <div class = "row" id="user-instructions">
-            <h3>You will be given a random number at the start of the game</h3>
-            <h3>There are four crystals below. Clicking a crystal will add a specific amount of points to your total score.</h3>
-            <h3>You win the game by matching your total score to a random number, you lose the gam if your total score goes above the random number.</h3>
-            <h3>The value of each crystal is hidden from you until you click on it.</h3>
-            <h3>Each time when the game starts, the game will challenge the values of each crystal.</h3>
+        <div class = "row col-6" id="user-instructions">
+            <p>You will be given a random number at the start of the game</p>
+            <p>There are four crystals below. Clicking a crystal will add a specific amount of points to your total score.</p>
+            <p>You win the game by matching your total score to a random number, you lose the gam if your total score goes above the random number.</p>
+            <p>The value of each crystal is hidden from you until you click on it.</p>
+            <p>Each time when the game starts, the game will challenge the values of each crystal.</p>
         </div>
         <div class="row" id="num">
             <div id="w-l">
-                <span id="wins"></span>
-                <span id="losses"></span>
+                <span id="wins">Wins: </span>
+                <span id="losses"> Losses: </span>
             </div>
         </div>
 
         <div class="row" id="crystals">
-            <button class = "btn btn-danger crystals"id="crystal-1">Crystal 1</button>
-            <button class = "btn btn-danger crystals" id="crystal-2">Crystal 2</button>
-            <button class = "btn btn-danger crystals" id="crystal-3">Crystal 3</button>
-            <button class = "btn btn-danger crystals" id="crystal-4">Crystal 4</button>
+            <button class = "btn btn-danger crystals"id="crystal-1"></button>
+            <button class = "btn btn-danger crystals" id="crystal-2"></button>
+            <button class = "btn btn-danger crystals" id="crystal-3"></button>
+            <button class = "btn btn-danger crystals" id="crystal-4"></button>
         </div>
         <div class="row" id="score-box">
             <span>Your Total Score is:</span>
@@ -46,8 +46,12 @@
             <span id="match-score"></span>
         </div>
     </div>
+    <!-- jQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- my JS link -->
+
+    <script src="assets/javascript/game.js"></script>
     
     <!-- Bootstrap Optional JavaScript -->
     
@@ -55,102 +59,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!-- jQuery Library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     
     <!-- My Code  -->
-    <script>
-    // Variable Initialization
-    var wins = 0;
-    var losses = 0;
-    var crystalOneVal = 0;
-    var crystalTwoVal = 0;
-    var crystalThreeVal = 0;
-    var crystalFourVal = 0;
-    var matchScore = 0;
-    var myScore = 0;
-    var isPlaying = false;
-    
 
-
-    // JQuery function 
-    $(document).ready(function() {
-    
-      
-        // Computes score that user is to match on a random number
-        
-        function startGame() {
-            if (isPlaying === false) {
-                myScore = 0;
-                $("#your-score").text("0");
-                matchScore = Math.floor(Math.random() * (101)) + 19;
-                $("#match-score").text("Score to match is: " + matchScore);
-                crystalOneVal = Math.floor(Math.random() * (11) +1 );
-                console.log(crystalOneVal);
-                crystalTwoVal = Math.floor(Math.random() * (11) +1 );
-                console.log(crystalTwoVal);
-                crystalThreeVal = Math.floor(Math.random() * (11) +1 );
-                console.log(crystalThreeVal);
-                crystalFourVal = Math.floor(Math.random() * (11) +1 );
-                console.log(crystalFourVal);
-                isPlaying = true;
-                // matchScore = 0;
-                // myScore = 0;
-            }
-
-        }
-        function winLoss() {
-            if (myScore === matchScore) {
-                wins++;
-                $("#wins").text("Wins: " + wins.toString());
-                isPlaying = false;
-                console.log("Wins: " + wins);
-                startGame();
-        }
-            else if (myScore > matchScore) {
-                losses++;
-                console.log("Losses: " + losses);
-                isPlaying = false;
-                $("#losses").text("Losses: " + losses.toString());
-                startGame();
-         }
-     }
-        
-            
-        startGame();
-
-        // Click events that handle when a button on the page is clicked
-
-
-        $('#crystal-1').click(function() {
-            myScore = myScore + crystalOneVal;
-            $("#your-score").text(myScore.toString());  
-            winLoss();
-        });
-        $('#crystal-2').click(function() {
-            myScore = myScore + crystalTwoVal;
-            $("#your-score").text(myScore.toString()); 
-            winLoss();                 
-        });
-        $('#crystal-3').click(function() {
-            myScore = myScore + crystalThreeVal;
-            $("#your-score").text(myScore.toString());
-            winLoss(); 
-        });
-        $('#crystal-4').click(function() {
-            myScore = myScore + crystalFourVal;
-            $("#your-score").text(myScore.toString());  
-            winLoss();
-        });
-
-        
-
-//Comparison Statements designed to determine whether or not the user has won or lost. Additionally, these if statements will reset the game if the user achieves a win or loss. 
-        
-     
-            
-    });
-    </script>
 
 </body>
 </html>
