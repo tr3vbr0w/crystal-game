@@ -19,32 +19,35 @@
   
 <body>
     <div class="container">
-         <h1>Crystal Collector!!</h1>
-        <div class = "row col-6" id="user-instructions">
-            <p>You will be given a random number at the start of the game</p>
-            <p>There are four crystals below. Clicking a crystal will add a specific amount of points to your total score.</p>
-            <p>You win the game by matching your total score to a random number, you lose the gam if your total score goes above the random number.</p>
-            <p>The value of each crystal is hidden from you until you click on it.</p>
-            <p>Each time when the game starts, the game will challenge the values of each crystal.</p>
+         <h1 class = "mx-auto">Crystal Collector</h1>
+        <div class = "row col-10 mx-auto md-col-12" id="user-instructions">
+            <ol>
+                <li class = "m-2">You will be given a random number at the start of the game</li>
+                <li class = "m-2">There are four crystals below. Clicking a crystal will add a specific amount of points to your total score.</li>
+                <li class = "m-2">You win the game by matching your total score to a random number, you lose the gam if your total score goes above the random number.</li>
+                <li class = "m-2">The value of each crystal is hidden from you until you click on it.</li>
+                <li class = "m-2">Each time when the game starts, the game will challenge the values of each crystal.</li>
+            </ol>
         </div>
-        <div class="row" id="num">
-            <div id="w-l">
+        <div class="row mx-auto m-2" id="num">
+            <div id="w-l col-6">
                 <span id="wins">Wins: </span>
                 <span id="losses"> Losses: </span>
             </div>
+            <div class="mx-auto" id="score-box">
+                    <span>Your Total Score is:</span>
+                    <span id="your-score"></span>
+                    <span id="match-score"></span>
+                </div>
         </div>
-
-        <div class="row" id="crystals">
-            <button class = "btn btn-danger crystals"id="crystal-1"></button>
-            <button class = "btn btn-danger crystals" id="crystal-2"></button>
-            <button class = "btn btn-danger crystals" id="crystal-3"></button>
-            <button class = "btn btn-danger crystals" id="crystal-4"></button>
+        
+        <div class="row mx-auto col-12" id="crystals">
+            <button class = "crystals m-1" id="crystal-1"><img src="assets/images/download.png" width = "100px"></button>
+            <button class = "crystals m-1" id="crystal-2"><img src="assets/images/download_2.jpg" width = "100px"></button>
+            <button class = "crystals m-1" id="crystal-3"><img src="assets/images/gem-03.jpg" width = "100px"></button>
+            <button class = "crystals m-1" id="crystal-4"><img src="assets/images/ruby1.png" width = "100px"></button>
         </div>
-        <div class="row" id="score-box">
-            <span>Your Total Score is:</span>
-            <span id="your-score"></span>
-            <span id="match-score"></span>
-        </div>
+        
     </div>
     <!-- jQuery Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
